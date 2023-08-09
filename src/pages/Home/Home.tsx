@@ -1,12 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { customersReview, plans } from "@/helpers";
-import {
-  RiUser3Fill,
-  RiMapPin2Line,
-  RiServerLine,
-  RiCheckLine,
-  RiStarSFill,
-} from "react-icons/ri";
+import { plans } from "@/helpers";
+import { RiCheckLine } from "react-icons/ri";
 import { Plan } from "./components";
 
 const Home = () => {
@@ -14,9 +8,9 @@ const Home = () => {
     <>
       <div className="container mx-auto">
         {/* Start */}
-        <section className="flex flex-row pt-5 pb-12">
-          <div className="flex flex-col gap-4 w-[40%]">
-            <h2 className="text-6xl font-semibold text-slate-900">
+        <section className="flex flex-row max-sm:flex-col max-sm:items-center max-sm:gap-10 pt-5 pb-12 justify-center">
+          <div className="flex flex-col gap-4 w-[40%] md:w-[60%] max-sm:w-full max-sm:p-8">
+            <h2 className="text-6xl md:text-4xl max-sm:text-2xl font-semibold text-slate-900">
               Queremos que todo sea fácil para ti.{" "}
               <span className="font-bold">Enatel Perú.</span>
             </h2>
@@ -37,7 +31,11 @@ const Home = () => {
               Empezar
             </a>
           </div>
-          <img src="hello_undraw.svg" alt="ilustration" className="w-[60%]" />
+          <img
+            src="hello_undraw.svg"
+            alt="ilustration"
+            className="w-[60%] md:w-[40%]"
+          />
         </section>
 
         {/* Cards Simples */}
@@ -68,7 +66,7 @@ const Home = () => {
         </div> */}
 
         {/* Features */}
-        <div className="flex gap-8 py-16">
+        <div className="flex max-sm:flex-col max-sm:p-8 gap-8 py-16">
           <div>
             <img src="shared_workspace.svg" alt="workspace" />
           </div>
@@ -103,9 +101,9 @@ const Home = () => {
       <section className="bg-[#fbfbfb]" id="plan">
         <div className="container mx-auto">
           {/* Title */}
-          <div className="flex flex-col gap-4 py-12 items-center justify-center">
+          <div className="flex flex-col gap-4 max-sm:px-8 py-12 items-center justify-center">
             <h3 className="capitalize font-bold text-xl">Escoge tu plan</h3>
-            <p className="text-gray-500">
+            <p className="text-gray-500 text-justify">
               Elije el paquete que sea mejor para ti y explóralo con alegría y
               entusiasmo.
             </p>

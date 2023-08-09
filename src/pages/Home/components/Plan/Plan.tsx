@@ -1,5 +1,4 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { RiCheckLine } from "react-icons/ri";
 
 interface IPlan {
   title: string;
@@ -10,7 +9,7 @@ interface IPlan {
 
 const Plan = ({ title, price, speed }: IPlan) => {
   return (
-    <div className="outline outline-1 outline-gray-500 w-fit py-12 px-24">
+    <div className="outline outline-1 outline-gray-500 w-fit py-12 px-24 mb-4">
       <div className="flex flex-col justify-center items-center mb-5 gap-2">
         <img src="order_delivered.svg" alt="order" className="w-44 h-44" />
         <h4 className="font-semibold text-slate-900">{title}</h4>
@@ -42,8 +41,9 @@ const Plan = ({ title, price, speed }: IPlan) => {
         </h3>
         <h3 className="font-semibold text-slate-900 text-2xl">{speed} MB</h3>
         <a
-          href={`"https://api.whatsapp.com/send?phone=941946962&amp;text=Quisiera saber más sobre el plan ${title} de ${speed} MBPS de S/${price}"`}
+          href={`https://api.whatsapp.com/send?phone=941946962&amp;text=Quisiera saber más sobre el plan ${title} de ${speed} MBPS de S/${price}`}
           className="px-4 py-1 rounded-xl font-semibold text-red-500 outline outline-1 outline-red-500"
+          target="_blank"
         >
           {/* Seleccionar */} Saber Más
         </a>
