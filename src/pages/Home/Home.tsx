@@ -3,6 +3,7 @@ import {
   RiMapPin2Line,
   RiServerLine,
   RiCheckLine,
+  RiStarSFill,
 } from "react-icons/ri";
 
 const Home = () => {
@@ -231,14 +232,14 @@ const Home = () => {
           </div>
         </div>
 
-        <div>
-          <div className="flex flex-col justify-center items-center my-5">
+        <div className="flex flex-col">
+          <div className="flex flex-col justify-center items-center pt-12 pb-6 my-5">
             <h3 className="font-semibold text-slate-900">
               Huge GHlobal Network of Fast VPN
             </h3>
             <p className="text-gray-500 font-normal">
               See{" "}
-              <span className="font-semibold text-slate-900">EnatelPeru</span>
+              <span className="font-semibold text-slate-900">EnatelPeru </span>
               everywhere to make it easier for you when you move locations
             </p>
           </div>
@@ -249,7 +250,109 @@ const Home = () => {
           />
         </div>
 
-        
+        {/* Carousel Brands */}
+        <div>{/* Name of brands */}</div>
+
+        {/* Section of customer */}
+        <div>
+          <div className="flex flex-col justify-center items-center my-5">
+            <h3 className="font-semibold text-slate-900">
+              Trusted by Thousands of Happy Customer
+            </h3>
+            <p className="text-gray-500 font-normal">
+              These are the stories of our customers who have joined us with
+              great pleasure when using this crazy feature.
+            </p>
+          </div>
+
+          {/* Carousel of Customers */}
+          <div className="flex flex-row gap-4 items-center justify-center py-5">
+            {/* Card of customer */}
+            <div className="outline outline-gray-300 rounded-md p-4 w-96 h-44 hover:outline-red-500">
+              <div className="flex flex-row gap-4 mb-4">
+                <img
+                  src="https://img.freepik.com/foto-gratis/animada-entusiasta-decidida-sonriente-confiada-asiatica-lista-abordar-cualquier-tarea-cruzar-dedos-sobre-pecho-asertiva-segura-si-misma-sonriente-satisfecha-parece-profesional-fondo-blanco_176420-51110.jpg?size=626&ext=jpg&ga=GA1.2.1948804204.1691457908&semt=sph"
+                  alt="person"
+                  className="w-[40px] h-[40px] object-cover rounded-full"
+                />
+                <div className="flex-auto flex-col">
+                  <h4 className="font-semibold text-slate-900">Viezh Robert</h4>
+                  <span className="text-gray-500">Warsaw, Poland</span>
+                </div>
+                <div className="flex flex-1 items-center justify-end gap-2">
+                  <span className="font-semibold text-slate-900">4.5</span>{" "}
+                  <RiStarSFill className="text-yellow-400" />
+                </div>
+              </div>
+              <p>
+                "Wow... I am very happy to use this VPN, it turnet out to be
+                more than my expectations and so far there have been no
+                problems. EnatelPeru always the best".
+              </p>
+            </div>
+            {/* Card of customer */}
+            <div className="outline outline-gray-300 rounded-md p-4 w-96 h-44  hover:outline-red-500">
+              <div className="flex flex-row gap-4 mb-4">
+                <img
+                  src="https://img.freepik.com/foto-gratis/animada-entusiasta-decidida-sonriente-confiada-asiatica-lista-abordar-cualquier-tarea-cruzar-dedos-sobre-pecho-asertiva-segura-si-misma-sonriente-satisfecha-parece-profesional-fondo-blanco_176420-51110.jpg?size=626&ext=jpg&ga=GA1.2.1948804204.1691457908&semt=sph"
+                  alt="person"
+                  className="w-[40px] h-[40px] object-cover rounded-full"
+                />
+                <div className="flex-auto flex-col">
+                  <h4 className="font-semibold text-slate-900">
+                    Yessica Christy
+                  </h4>
+                  <span className="text-gray-500">Shanxi, China</span>
+                </div>
+                <div className="flex flex-1 items-center justify-end gap-2">
+                  <span className="font-semibold text-slate-900">4.5</span>{" "}
+                  <RiStarSFill className="text-yellow-400" />
+                </div>
+              </div>
+              <p>
+                "I like it because I like to travel far and still can connect
+                with high speed.".
+              </p>
+            </div>
+            {/* Card of customer */}
+            <div className="outline outline-gray-300 rounded-md p-4 w-96 h-44  hover:outline-red-500">
+              <div className="flex flex-row gap-4 mb-4">
+                <img
+                  src="https://img.freepik.com/foto-gratis/animada-entusiasta-decidida-sonriente-confiada-asiatica-lista-abordar-cualquier-tarea-cruzar-dedos-sobre-pecho-asertiva-segura-si-misma-sonriente-satisfecha-parece-profesional-fondo-blanco_176420-51110.jpg?size=626&ext=jpg&ga=GA1.2.1948804204.1691457908&semt=sph"
+                  alt="person"
+                  className="w-[40px] h-[40px] object-cover rounded-full"
+                />
+                <div className="flex-auto flex-col">
+                  <h4 className="font-semibold text-slate-900">Viezh Robert</h4>
+                  <span className="text-gray-500">Warsaw, Poland</span>
+                </div>
+                <div className="flex flex-1 items-center justify-end gap-2">
+                  <span className="font-semibold text-slate-900">4.5</span>{" "}
+                  <RiStarSFill className="text-yellow-400" />
+                </div>
+              </div>
+              <p>
+                "This is very unusual for my business that currently requires a
+                virtual private network that has high security.".
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Card of Newsletter */}
+        <div className="flex justify-between items-center bg-white w-[50%] rounded-lg shadow-lg p-16 mx-auto relative top-[80px] z-50">
+          <div>
+            <h3 className="font-bold text-slate-900 text-2xl">
+              Subscribe Now for Get Special Features!
+            </h3>
+            <span className="text-gray-500">
+              Let's subscribe with us and find the fun.
+            </span>
+          </div>
+          <button className="bg-red-600 rounded-md w-fit px-8 py-2 text-white font-bold shadow-lg shadow-red-500/50">
+            Subscribe Now
+          </button>
+        </div>
       </section>
     </>
   );
