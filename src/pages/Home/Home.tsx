@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { customersReview, plans } from "@/helpers";
 import {
   RiUser3Fill,
   RiMapPin2Line,
@@ -5,6 +7,7 @@ import {
   RiCheckLine,
   RiStarSFill,
 } from "react-icons/ri";
+import { Plan } from "./components";
 
 const Home = () => {
   return (
@@ -14,22 +17,31 @@ const Home = () => {
         <section className="flex flex-row pt-5 pb-12">
           <div className="flex flex-col gap-4 w-[40%]">
             <h2 className="text-6xl font-semibold text-slate-900">
-              Want anything to be easy with{" "}
-              <span className="font-bold">LalesVPN.</span>
+              Queremos que todo sea fácil para ti.{" "}
+              <span className="font-bold">Enatel Perú.</span>
             </h2>
             <p className="text-gray-500">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat,
-              error laborum?. <span className="font-semibold">Enatel Peru</span>
+              <span className="font-semibold">Enatel Perú</span> es líder en la
+              instalación de redes en hogares, brindando soluciones de
+              conectividad excepcionales. Nuestros servicios se centran en
+              garantizar conexiones confiables y de alta velocidad para
+              satisfacer las necesidades digitales de nuestros clientes. Con un
+              enfoque en la calidad y la innovación, nos esforzamos por crear
+              entornos conectados que mejoren la experiencia de comunicación y
+              promuevan el avance tecnológico en el Perú.
             </p>
-            <button className="bg-red-600 rounded-md w-fit px-8 py-2 text-white font-bold shadow-lg shadow-red-500/50">
-              Get Started
-            </button>
+            <a
+              href="#plan"
+              className="bg-red-600 rounded-md w-fit px-8 py-2 text-white font-bold shadow-lg shadow-red-500/50"
+            >
+              Empezar
+            </a>
           </div>
           <img src="hello_undraw.svg" alt="ilustration" className="w-[60%]" />
         </section>
 
         {/* Cards Simples */}
-        <div className="flex justify-around p-8 my-5 shadow-lg">
+        {/* <div className="flex justify-around p-8 my-5 shadow-lg">
           <div className="flex gap-6 items-center">
             <RiUser3Fill className="w-[30px] h-[30px] bg-red-300 rounded-full p-2 text-red-600" />
             <div className="flex flex-col">
@@ -53,7 +65,7 @@ const Home = () => {
               <span className="font-semibold text-gray-400">Servers</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Features */}
         <div className="flex gap-8 py-16">
@@ -62,33 +74,25 @@ const Home = () => {
           </div>
           <div className="flex flex-col gap-4">
             <h3 className="capitalize font-bold text-xl text-slate-900">
-              We Provide Many Features You Can Use
+              Ofrecemos muchas características que puedes utilizar.
             </h3>
             <span className="text-gray-500">
-              You can explore the features that we provide with fun and have
-              their own functions each future.
+              Puedes explorar las características que ofrecemos de manera
+              divertida y cada una tiene sus propias funciones.
             </span>
             <div>
               <ul className="flex flex-col gap-4">
                 <li className="flex gap-2 items-center">
                   <RiCheckLine className="bg-green-400 rounded-full text-white p-0.5 w-[20px] h-[20px]" />
                   <span className="text-gray-500">
-                    Powerfull online protection.
+                    Conexión rápida y estable en todo momento.
                   </span>
                 </li>
                 <li className="flex gap-2 items-center">
                   <RiCheckLine className="bg-green-400 rounded-full text-white p-0.5 w-[20px] h-[20px]" />
                   <span className="text-gray-500">
-                    Internet without borders.
+                    Soporte técnico disponible las 24 horas.
                   </span>
-                </li>
-                <li className="flex gap-2 items-center">
-                  <RiCheckLine className="bg-green-400 rounded-full text-white p-0.5 w-[20px] h-[20px]" />
-                  <span className="text-gray-500">Supercharged VPN</span>
-                </li>
-                <li className="flex gap-2 items-center">
-                  <RiCheckLine className="bg-green-400 rounded-full text-white p-0.5 w-[20px] h-[20px]" />
-                  <span className="text-gray-500">No specific time limits</span>
                 </li>
               </ul>
             </div>
@@ -96,151 +100,43 @@ const Home = () => {
         </div>
       </div>
 
-      <section className="bg-[#fbfbfb]">
+      <section className="bg-[#fbfbfb]" id="plan">
         <div className="container mx-auto">
           {/* Title */}
           <div className="flex flex-col gap-4 py-12 items-center justify-center">
-            <h3 className="capitalize font-bold text-xl">Choose your plan</h3>
+            <h3 className="capitalize font-bold text-xl">Escoge tu plan</h3>
             <p className="text-gray-500">
-              Let's choose the package that is best for you and explore it
-              happily and cheerfully
+              Elije el paquete que sea mejor para ti y explóralo con alegría y
+              entusiasmo.
             </p>
           </div>
 
           {/* Cards Plans */}
           <div className="flex flex-wrap justify-evenly">
             {/* Card */}
-            <div className="outline outline-1 outline-gray-500 w-fit py-12 px-24">
-              <div className="flex flex-col justify-center items-center mb-5 gap-2">
-                <img
-                  src="order_delivered.svg"
-                  alt="order"
-                  className="w-44 h-44"
-                />
-                <h4 className="font-semibold text-slate-900">Free Plan</h4>
-              </div>
-              <div>
-                <ul className="flex flex-col gap-5">
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>Unlimited Bandwitch</span>
-                  </li>
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>No Traffic Logs</span>
-                  </li>
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>Encrypted Connection</span>
-                  </li>
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>Works on All Devices</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex flex-col items-center justify-center mt-24 gap-4">
-                <h3 className="font-semibold text-slate-900 text-2xl">Free</h3>
-                <button
-                  type="button"
-                  className="w-full px-4 py-1 rounded-xl font-semibold text-red-500 outline outline-1 outline-red-500"
-                >
-                  Select
-                </button>
-              </div>
-            </div>
-            {/* Card */}
-            <div className="outline outline-1 outline-gray-500 w-fit py-12 px-24">
-              <div className="flex flex-col justify-center items-center mb-5 gap-2">
-                <img
-                  src="order_delivered.svg"
-                  alt="order"
-                  className="w-44 h-44"
-                />
-                <h4 className="font-semibold text-slate-900">Free Plan</h4>
-              </div>
-              <div>
-                <ul className="flex flex-col gap-5">
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>Unlimited Bandwitch</span>
-                  </li>
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>No Traffic Logs</span>
-                  </li>
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>Encrypted Connection</span>
-                  </li>
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>Works on All Devices</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex flex-col items-center justify-center mt-24 gap-4">
-                <h3 className="font-semibold text-slate-900 text-2xl">Free</h3>
-                <button
-                  type="button"
-                  className="w-full px-4 py-1 rounded-xl font-semibold text-red-500 outline outline-1 outline-red-500"
-                >
-                  Select
-                </button>
-              </div>
-            </div>
-            {/* Card */}
-            <div className="outline outline-1 outline-gray-500 w-fit py-12 px-24">
-              <div className="flex flex-col justify-center items-center mb-5 gap-2">
-                <img
-                  src="order_delivered.svg"
-                  alt="order"
-                  className="w-44 h-44"
-                />
-                <h4 className="font-semibold text-slate-900">Free Plan</h4>
-              </div>
-              <div>
-                <ul className="flex flex-col gap-5">
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>Unlimited Bandwitch</span>
-                  </li>
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>No Traffic Logs</span>
-                  </li>
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>Encrypted Connection</span>
-                  </li>
-                  <li className="flex flex-row gap-4">
-                    <RiCheckLine className="text-green-500 p-0.5 w-[20px] h-[20px]" />
-                    <span>Works on All Devices</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex flex-col items-center justify-center mt-24 gap-4">
-                <h3 className="font-semibold text-slate-900 text-2xl">Free</h3>
-                <button
-                  type="button"
-                  className="w-full px-4 py-1 rounded-xl font-semibold text-red-500 outline outline-1 outline-red-500"
-                >
-                  Select
-                </button>
-              </div>
-            </div>
+            {plans.map(({ features, price, speed, title }, i) => (
+              <Plan
+                key={i}
+                price={price}
+                speed={speed}
+                title={title}
+                features={features}
+              />
+            ))}
           </div>
         </div>
 
-        <div className="flex flex-col">
+        {/* Maps Location */}
+        {/* <div className="flex flex-col">
           <div className="flex flex-col justify-center items-center pt-12 pb-6 my-5">
             <h3 className="font-semibold text-slate-900">
-              Huge GHlobal Network of Fast VPN
+              Una gran red global de VPN rápida.
             </h3>
             <p className="text-gray-500 font-normal">
-              See{" "}
-              <span className="font-semibold text-slate-900">EnatelPeru </span>
-              everywhere to make it easier for you when you move locations
+              Encuentra{" "}
+              <span className="font-semibold text-slate-900">Enatel Perú </span>
+              en todas partes para facilitarte la conexión al cambiar de
+              ubicación.
             </p>
           </div>
           <img
@@ -248,99 +144,52 @@ const Home = () => {
             alt="ilustration"
             className="mx-auto h-[600px] w-[600px]"
           />
-        </div>
+        </div> */}
 
         {/* Carousel Brands */}
         <div>{/* Name of brands */}</div>
 
         {/* Section of customer */}
         <div>
-          <div className="flex flex-col justify-center items-center my-5">
+          {/* <div className="flex flex-col justify-center items-center my-5">
             <h3 className="font-semibold text-slate-900">
-              Trusted by Thousands of Happy Customer
+              Con la confianza de miles de clientes satisfechos.
             </h3>
             <p className="text-gray-500 font-normal">
-              These are the stories of our customers who have joined us with
-              great pleasure when using this crazy feature.
+              Estas son las historias de nuestros clientes que se han unido a
+              nosotros con gran satisfacción al usar esta característica
+              increíble.
             </p>
-          </div>
+          </div> */}
 
           {/* Carousel of Customers */}
           <div className="flex flex-row gap-4 items-center justify-center py-5">
             {/* Card of customer */}
-            <div className="outline outline-gray-300 rounded-md p-4 w-96 h-44 hover:outline-red-500">
-              <div className="flex flex-row gap-4 mb-4">
-                <img
-                  src="https://img.freepik.com/foto-gratis/animada-entusiasta-decidida-sonriente-confiada-asiatica-lista-abordar-cualquier-tarea-cruzar-dedos-sobre-pecho-asertiva-segura-si-misma-sonriente-satisfecha-parece-profesional-fondo-blanco_176420-51110.jpg?size=626&ext=jpg&ga=GA1.2.1948804204.1691457908&semt=sph"
-                  alt="person"
-                  className="w-[40px] h-[40px] object-cover rounded-full"
-                />
-                <div className="flex-auto flex-col">
-                  <h4 className="font-semibold text-slate-900">Viezh Robert</h4>
-                  <span className="text-gray-500">Warsaw, Poland</span>
+            {/* {customersReview.map(({ name, location, review, star, image }) => (
+              <div className="outline outline-gray-300 rounded-md p-4 w-96 h-44 hover:outline-red-500">
+                <div className="flex flex-row gap-4 mb-4">
+                  <img
+                    src={image}
+                    alt="person"
+                    className="w-[40px] h-[40px] object-cover rounded-full"
+                  />
+                  <div className="flex-auto flex-col">
+                    <h4 className="font-semibold text-slate-900">{name}</h4>
+                    <span className="text-gray-500">{location}</span>
+                  </div>
+                  <div className="flex flex-1 items-center justify-end gap-2">
+                    <span className="font-semibold text-slate-900">{star}</span>{" "}
+                    <RiStarSFill className="text-yellow-400" />
+                  </div>
                 </div>
-                <div className="flex flex-1 items-center justify-end gap-2">
-                  <span className="font-semibold text-slate-900">4.5</span>{" "}
-                  <RiStarSFill className="text-yellow-400" />
-                </div>
+                <p>{review}</p>
               </div>
-              <p>
-                "Wow... I am very happy to use this VPN, it turnet out to be
-                more than my expectations and so far there have been no
-                problems. EnatelPeru always the best".
-              </p>
-            </div>
-            {/* Card of customer */}
-            <div className="outline outline-gray-300 rounded-md p-4 w-96 h-44  hover:outline-red-500">
-              <div className="flex flex-row gap-4 mb-4">
-                <img
-                  src="https://img.freepik.com/foto-gratis/animada-entusiasta-decidida-sonriente-confiada-asiatica-lista-abordar-cualquier-tarea-cruzar-dedos-sobre-pecho-asertiva-segura-si-misma-sonriente-satisfecha-parece-profesional-fondo-blanco_176420-51110.jpg?size=626&ext=jpg&ga=GA1.2.1948804204.1691457908&semt=sph"
-                  alt="person"
-                  className="w-[40px] h-[40px] object-cover rounded-full"
-                />
-                <div className="flex-auto flex-col">
-                  <h4 className="font-semibold text-slate-900">
-                    Yessica Christy
-                  </h4>
-                  <span className="text-gray-500">Shanxi, China</span>
-                </div>
-                <div className="flex flex-1 items-center justify-end gap-2">
-                  <span className="font-semibold text-slate-900">4.5</span>{" "}
-                  <RiStarSFill className="text-yellow-400" />
-                </div>
-              </div>
-              <p>
-                "I like it because I like to travel far and still can connect
-                with high speed.".
-              </p>
-            </div>
-            {/* Card of customer */}
-            <div className="outline outline-gray-300 rounded-md p-4 w-96 h-44  hover:outline-red-500">
-              <div className="flex flex-row gap-4 mb-4">
-                <img
-                  src="https://img.freepik.com/foto-gratis/animada-entusiasta-decidida-sonriente-confiada-asiatica-lista-abordar-cualquier-tarea-cruzar-dedos-sobre-pecho-asertiva-segura-si-misma-sonriente-satisfecha-parece-profesional-fondo-blanco_176420-51110.jpg?size=626&ext=jpg&ga=GA1.2.1948804204.1691457908&semt=sph"
-                  alt="person"
-                  className="w-[40px] h-[40px] object-cover rounded-full"
-                />
-                <div className="flex-auto flex-col">
-                  <h4 className="font-semibold text-slate-900">Viezh Robert</h4>
-                  <span className="text-gray-500">Warsaw, Poland</span>
-                </div>
-                <div className="flex flex-1 items-center justify-end gap-2">
-                  <span className="font-semibold text-slate-900">4.5</span>{" "}
-                  <RiStarSFill className="text-yellow-400" />
-                </div>
-              </div>
-              <p>
-                "This is very unusual for my business that currently requires a
-                virtual private network that has high security.".
-              </p>
-            </div>
+            ))} */}
           </div>
         </div>
 
         {/* Card of Newsletter */}
-        <div className="flex justify-between items-center bg-white w-[50%] rounded-lg shadow-lg p-16 mx-auto relative top-[80px] z-50">
+        {/* <div className="flex justify-between items-center bg-white w-[50%] rounded-lg shadow-lg p-16 mx-auto relative top-[80px] z-50">
           <div>
             <h3 className="font-bold text-slate-900 text-2xl">
               Subscribe Now for Get Special Features!
@@ -352,7 +201,7 @@ const Home = () => {
           <button className="bg-red-600 rounded-md w-fit px-8 py-2 text-white font-bold shadow-lg shadow-red-500/50">
             Subscribe Now
           </button>
-        </div>
+        </div> */}
       </section>
     </>
   );

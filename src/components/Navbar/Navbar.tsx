@@ -34,8 +34,8 @@ const Navbar = () => {
     <div className="bg-white p-8">
       <div className="container mx-auto flex flex-row items-center justify-between">
         <Link to={"/"} className="flex flex-row gap-2 items-center">
-          <img src="vite.svg" alt="logo" />
-          <h1 className="text-xl font-semibold">EnatelPeru</h1>
+          <img src="logo.png" alt="logo" className="w-20" />
+          <h1 className="text-xl font-bold">EnatelPeru</h1>
         </Link>
         <div>
           <nav>
