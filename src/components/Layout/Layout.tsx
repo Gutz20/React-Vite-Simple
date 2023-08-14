@@ -1,13 +1,17 @@
 import { Footer, Navbar } from "..";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Outlet } from "react-router-dom";
+import { Toaster } from "@/components/ui/toaster";
+import "react-toastify/dist/ReactToastify.css";
 
 const Layout = () => {
   return (
-    <main>
+    <main className="min-h-screen">
       <Navbar />
-      <Outlet />
+      <div className="container max-w-7xl mx-auto h-full">
+        <Outlet />
+      </div>
       <Footer />
+      <Toaster />
     </main>
   );
 };

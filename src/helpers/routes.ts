@@ -1,7 +1,11 @@
 export const routes = [
   {
-    label: "Home",
+    label: "Inicio",
     path: "/",
+  },
+  {
+    label: "Foro",
+    path: "/forum",
   },
   // {
   //   label: "About",
@@ -11,10 +15,10 @@ export const routes = [
   //   label: "Contact",
   //   path: "/contact",
   // },
-  // {
-  //   label: "Plans",
-  //   path: "/plans",
-  // },
+  {
+    label: "Planes",
+    path: "/plans",
+  },
   // {
   //   label: "Coverage",
   //   path: "/coverage",

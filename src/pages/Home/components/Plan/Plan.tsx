@@ -11,7 +11,7 @@ const Plan = ({ title, price, speed }: IPlan) => {
   return (
     <div className="outline outline-1 outline-gray-500 w-fit py-12 px-24 mb-4">
       <div className="flex flex-col justify-center items-center mb-5 gap-2">
-        <img src="order_delivered.svg" alt="order" className="w-44 h-44" />
+        <img src="assets/order_delivered.svg" alt="order" className="w-44 h-44" />
         <h4 className="font-semibold text-slate-900">{title}</h4>
       </div>
       {/* <div>

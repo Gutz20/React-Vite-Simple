@@ -1,7 +1,17 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import { Layout } from "./components";
-import { About, Contact, Coverage, Home, NotFound, Plans } from "./pages";
+import { Layout, NotFound, Password, Recovery, Reset } from "./components";
+import {
+  About,
+  Contact,
+  Coverage,
+  Forum,
+  Home,
+  Login,
+  Plans,
+  Profile,
+  Signup,
+} from "./pages";
 
 function App() {
   const router = createBrowserRouter([
@@ -11,6 +21,10 @@ function App() {
       errorElement: <NotFound />,
       children: [
         { index: true, element: <Home /> },
+        {
+          path: "/forum",
+          element: <Forum />,
+        },
         {
           path: "/about",
           element: <About />,
@@ -27,7 +41,36 @@ function App() {
           path: "/coverage",
           element: <Coverage />,
         },
+        {
+          path: "/profile",
+          element: <Profile />,
+        },
       ],
+    },
+    {
+      path: "/login",
+      element: <Login />,
+      errorElement: <NotFound />,
+    },
+    {
+      path: "/password",
+      element: <Password />,
+      errorElement: <NotFound />,
+    },
+    {
+      path: "/recovery",
+      element: <Recovery />,
+      errorElement: <NotFound />,
+    },
+    {
+      path: "/signup",
+      element: <Signup />,
+      errorElement: <NotFound />,
+    },
+    {
+      path: "/reset",
+      element: <Reset />,
+      errorElement: <NotFound />,
     },
   ]);
 

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { Button } from "@/components/ui/button";
 import { plans } from "@/helpers";
 import { RiCheckLine } from "react-icons/ri";
 import { Plan } from "./components";
@@ -24,15 +25,16 @@ const Home = () => {
               entornos conectados que mejoren la experiencia de comunicación y
               promuevan el avance tecnológico en el Perú.
             </p>
-            <a
-              href="#plan"
-              className="bg-red-600 rounded-md w-fit px-8 py-2 text-white font-bold shadow-lg shadow-red-500/50"
+            <Button
+              variant={"default"}
+              className="shadow-lg shadow-slate-500/50 w-fit px-8"
+              asChild
             >
-              Empezar
-            </a>
+              <a href="#plan">Empezar</a>
+            </Button>
           </div>
           <img
-            src="hello_undraw.svg"
+            src="assets/hello_undraw.svg"
             alt="ilustration"
             className="w-[60%] md:w-[40%]"
           />
@@ -68,7 +70,7 @@ const Home = () => {
         {/* Features */}
         <div className="flex max-sm:flex-col max-sm:p-8 gap-8 py-16">
           <div>
-            <img src="shared_workspace.svg" alt="workspace" />
+            <img src="assets/shared_workspace.svg" alt="workspace" />
           </div>
           <div className="flex flex-col gap-4">
             <h3 className="capitalize font-bold text-xl text-slate-900">

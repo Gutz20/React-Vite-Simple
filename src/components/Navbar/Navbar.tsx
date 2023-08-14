@@ -1,5 +1,6 @@
 import { routes } from "@/helpers";
 import { Link, NavLink } from "react-router-dom";
+import { Button } from "../ui/button";
 
 const Navbar = () => {
   return (
@@ -31,10 +32,10 @@ const Navbar = () => {
     // </nav>
 
     // Navigation Version 2
-    <div className="bg-white p-8">
+    <div className="bg-slate-200 px-8 py-4 w-full shadow-lg">
       <div className="container mx-auto flex flex-row items-center justify-between">
         <Link to={"/"} className="flex flex-row gap-2 items-center">
-          <img src="logo.png" alt="logo" className="w-20" />
+          <img src="assets/logo.png" alt="logo" className="w-20" />
           <h1 className="text-xl font-bold">EnatelPeru</h1>
         </Link>
         <div>
@@ -50,7 +51,7 @@ const Navbar = () => {
                         ? "underline"
                         : "text-gray-400"
                     }
-                    to={"/"}
+                    to={path}
                   >
                     {label}
                   </NavLink>
@@ -59,20 +60,14 @@ const Navbar = () => {
             </ul>
           </nav>
         </div>
-        {/* <div className="flex gap-2">
-          <button
-            type="button"
-            className="px-4 py-1 rounded-xl font-semibold hover:outline outline-1 outline-red-500"
-          >
-            Sign in
-          </button>
-          <button
-            type="button"
-            className="px-4 py-1 rounded-xl font-semibold text-red-500 outline outline-1 outline-red-500"
-          >
-            Sign up
-          </button>
-        </div> */}
+        <div className="flex gap-2">
+          <Button variant={"outline"}>
+            <Link to={"/login"}>Iniciar Sesion</Link>
+          </Button>
+          <Button variant={"outline"}>
+            <Link to={"/signup"}>Registrarse</Link>
+          </Button>
+        </div>
       </div>
     </div>
   );
