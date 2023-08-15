@@ -1,39 +1,39 @@
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
 import {
   Form,
+  FormControl,
+  FormDescription,
   FormField,
   FormItem,
-  FormDescription,
   FormLabel,
-  FormControl,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardFooter,
-  CardDescription,
-} from "@/components/ui/card";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { useForm } from "react-hook-form";
+import styles from "@/styles/loginpage.module.css";
 import { DevTool } from "@hookform/devtools";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { z } from "zod";
-import styles from "@/styles/loginpage.module.css";
-import { zodResolver } from "@hookform/resolvers/zod";
 
 const formPasswordSchema = z.object({
-  email: z.string().email({ message: "Email invalido" }).max(50),
+  password: z.string(),
 });
 
 const Password = () => {
+  // TODO 
   const form = useForm<z.infer<typeof formPasswordSchema>>({
     resolver: zodResolver(formPasswordSchema),
     defaultValues: {
-      email: "",
+      password: "",
     },
   });
 
@@ -58,29 +58,25 @@ const Password = () => {
         <form onSubmit={form.handleSubmit(onSubmit, onError)}>
           <Card className="w-[350px]">
             <CardHeader>
-              <CardTitle>Ayuda con la contraseña</CardTitle>
-              <CardDescription>
-                Escribe la dirección de correo electrónico asociado a tu cuenta
-                de Enatel Perú.
-              </CardDescription>
+              <CardTitle>Password</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid w-full items-center gap-4">
                 <div className="flex flex-col space-y-1 5">
                   <FormField
                     control={form.control}
-                    name="email"
+                    name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Dirección de correo electrónico</FormLabel>
+                        <FormLabel>Contraseña</FormLabel>
                         <FormControl>
                           <Input
-                            type="text"
+                            type="password"
                             {...field}
                             placeholder="Password"
                           />
                         </FormControl>
-                        <FormDescription>Ingresa tu email</FormDescription>
+                        <FormDescription>Ingresa tu contraseña</FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}

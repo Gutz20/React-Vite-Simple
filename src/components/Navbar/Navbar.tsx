@@ -61,12 +61,12 @@ const Navbar = () => {
           </nav>
         </div>
         <div className="flex gap-2">
-          <Button variant={"outline"}>
-            <Link to={"/login"}>Iniciar Sesion</Link>
-          </Button>
-          <Button variant={"outline"}>
-            <Link to={"/signup"}>Registrarse</Link>
-          </Button>
+          <Link to={"/login"}>
+            <Button variant={"outline"}>Iniciar Sesion</Button>
+          </Link>
+          <Link to={"/signup"}>
+            <Button variant={"outline"}>Registrarse</Button>
+          </Link>
         </div>
       </div>
     </div>

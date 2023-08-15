@@ -1,3 +1,4 @@
+import { authenticateRequest } from "@/api/auth";
 import {
   Button,
   Card,
@@ -16,29 +17,34 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import styles from "@/styles/loginpage.module.css";
 import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { z } from "zod";
-import styles from "@/styles/loginpage.module.css";
 
 const formLoginSchema = z.object({
-  email: z.string().email({ message: "Email invalido" }),
+  username: z.string(),
 });
 
 const Login = () => {
   const form = useForm<z.infer<typeof formLoginSchema>>({
     resolver: zodResolver(formLoginSchema),
     defaultValues: {
-      email: "",
+      username: "",
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formLoginSchema>) => {
-    console.log({ values });
+  const navigate = useNavigate();
+
+  const onSubmit = async (values: z.infer<typeof formLoginSchema>) => {
+    const { status, error } = await authenticateRequest(values.username);
+    if (status !== 200) return toast.error(error);
+
     toast("Iniciando Sesion!", { position: toast.POSITION.BOTTOM_RIGHT });
+    navigate("/password");
   };
 
   const onError = () => {
@@ -63,30 +69,24 @@ const Login = () => {
           <Card className="w-[350px]">
             <CardHeader>
               <CardTitle>Iniciar Sesion</CardTitle>
-              {/* <CardDescription>
-                Explore More by connectig with us
-              </CardDescription> */}
             </CardHeader>
             <CardContent>
               <div className="grid w-full items-center gap-4">
-                {/* <div className="profile flex justify-center py-4">
-                  <img
-                    src="assets/profile.png"
-                    className={styles.profile_img}
-                    alt="avatar"
-                  />
-                </div> */}
                 <div className="flex flex-col space-y-1 5">
                   <FormField
                     control={form.control}
-                    name="email"
+                    name="username"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>Username</FormLabel>
                         <FormControl>
-                          <Input type="text" {...field} placeholder="Email" />
+                          <Input
+                            type="text"
+                            {...field}
+                            placeholder="Username"
+                          />
                         </FormControl>
-                        <FormDescription>Ingresa tu email</FormDescription>
+                        <FormDescription>Ingresa tu username</FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}

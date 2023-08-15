@@ -5,7 +5,6 @@ export * from './NotFound';
 export * from './Password';
 export * from './Recovery';
 export * from './Reset';
-export * from './Username';
 export * from './ui/button';
 export * from './ui/card';
 export * from './ui/form';
