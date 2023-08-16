@@ -1,10 +1,41 @@
+import { Profile } from "@/models/profile";
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-export const useAuthStore = create((set) => ({
-  auth: {
-    username: "",
-    active: false,
-  },
-  setUsername: (name: any) =>
-    set((state: any) => ({ auth: { ...state.auth, username: name } })),
-}));
+type State = {
+  token: string;
+  profile: any;
+  isAuth: boolean;
+};
+
+type Actions = {
+  setToken: (token: string) => void;
+  setProfile: (profile: any) => void;
+  logout: () => void;
+};
+
+export const useAuthStore = create(
+  persist<State & Actions>(
+    (set) => ({
+      token: "",
+      profile: null,
+      isAuth: false,
+      setToken: (token: string) =>
+        set((state) => ({
+          token,
+          isAuth: true,
+        })),
+      setProfile: (profile: any) =>
+        set((state) => ({
+          profile,
+        })),
+      logout: () =>
+        set((state) => ({
+          token: "",
+          isAuth: false,
+          profile: null,
+        })),
+    }),
+    { name: "auth" }
+  )
+);

@@ -1,82 +1,56 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Layout, NotFound, Password, Recovery, Reset } from "./components";
 import {
-  About,
-  Contact,
-  Coverage,
-  Forum,
-  Home,
-  Login,
-  Plans,
-  Profile,
-  Signup,
+  Layout,
+  NotFound,
+  Password,
+  ProtectedRoute,
+  Recovery,
+  Reset,
+} from "./components";
+import {
+  AboutPage,
+  ContactPage,
+  CoveragePage,
+  ForumPage,
+  HomePage,
+  LoginPage,
+  PlanPage,
+  ProfilePage,
+  ReposPage,
+  SignupPage,
 } from "./pages";
+import { useAuthStore } from "./store";
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Layout />,
-      errorElement: <NotFound />,
-      children: [
-        { index: true, element: <Home /> },
-        {
-          path: "/forum",
-          element: <Forum />,
-        },
-        {
-          path: "/about",
-          element: <About />,
-        },
-        {
-          path: "/plans",
-          element: <Plans />,
-        },
-        {
-          path: "/contact",
-          element: <Contact />,
-        },
-        {
-          path: "/coverage",
-          element: <Coverage />,
-        },
-        {
-          path: "/profile",
-          element: <Profile />,
-        },
-      ],
-    },
-    {
-      path: "/login",
-      element: <Login />,
-      errorElement: <NotFound />,
-    },
-    {
-      path: "/password",
-      element: <Password />,
-      errorElement: <NotFound />,
-    },
-    {
-      path: "/recovery",
-      element: <Recovery />,
-      errorElement: <NotFound />,
-    },
-    {
-      path: "/signup",
-      element: <Signup />,
-      errorElement: <NotFound />,
-    },
-    {
-      path: "/reset",
-      element: <Reset />,
-      errorElement: <NotFound />,
-    },
-  ]);
+  const isAuth = useAuthStore((state) => state.isAuth);
 
   return (
     <>
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />} errorElement={<NotFound />}>
+            <Route index={true} element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/password" element={<Password />} />
+            <Route path="/recovery" element={<Recovery />} />
+            <Route path="/reset" element={<Reset />} />
+
+            <Route element={<ProtectedRoute isAllowed={isAuth} />}>
+              <Route path="/profile" element={<ProfilePage />} />
+            </Route>
+
+            <Route path="/forum" element={<ForumPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/plans" element={<PlanPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/coverage" element={<CoveragePage />} />
+            <Route path="/repos" element={<ReposPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

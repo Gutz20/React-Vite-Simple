@@ -34,15 +34,15 @@ export const registerRequest = async (user: any) => {
   }
 };
 
-export const loginRequest = async (user: any) => {
-  try {
-    if (user.username) {
-      const { data } = await axios.post(`auth/login`, user);
-      return Promise.resolve({ data });
-    }
-  } catch (error) {
-    return Promise.reject({ error: "Password doesn't Match...!" });
-  }
+export const loginRequest = async (email: string, password: string) => {
+  return axios.post(`auth/login`, {
+    email,
+    password,
+  });
+};
+
+export const profileRequest = async () => {
+  return await axios.get(`auth/profile`);
 };
 
 // This verify the token by the cookie

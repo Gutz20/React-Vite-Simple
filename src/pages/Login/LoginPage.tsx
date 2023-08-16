@@ -1,4 +1,4 @@
-import { authenticateRequest } from "@/api/auth";
+import { loginRequest, profileRequest } from "@/api/auth";
 import {
   Button,
   Card,
@@ -17,6 +17,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { useAuthStore } from "@/store";
 import styles from "@/styles/loginpage.module.css";
 import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,25 +27,33 @@ import { ToastContainer, toast } from "react-toastify";
 import { z } from "zod";
 
 const formLoginSchema = z.object({
-  username: z.string(),
+  email: z.string().email("Email invalido"),
+  password: z.string().min(6, "El password debe tener al menos 6 caracteres"),
 });
 
-const Login = () => {
+const LoginPage = () => {
   const form = useForm<z.infer<typeof formLoginSchema>>({
     resolver: zodResolver(formLoginSchema),
     defaultValues: {
-      username: "",
+      email: "",
+      password: "",
     },
   });
 
+  const setToken = useAuthStore((state) => state.setToken);
+  const setProfile = useAuthStore((state) => state.setProfile);
   const navigate = useNavigate();
 
   const onSubmit = async (values: z.infer<typeof formLoginSchema>) => {
-    const { status, error } = await authenticateRequest(values.username);
-    if (status !== 200) return toast.error(error);
+    const { email, password } = values;
 
-    toast("Iniciando Sesion!", { position: toast.POSITION.BOTTOM_RIGHT });
-    navigate("/password");
+    const resLogin = await loginRequest(email, password);
+    setToken(resLogin.data.token);
+
+    const resProfile = await profileRequest();
+    setProfile(resProfile.data.data);
+
+    navigate(`/profile`);
   };
 
   const onError = () => {
@@ -66,7 +75,7 @@ const Login = () => {
       </Link>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit, onError)}>
-          <Card className="w-[350px]">
+          <Card className="w-[450px]">
             <CardHeader>
               <CardTitle>Iniciar Sesion</CardTitle>
             </CardHeader>
@@ -75,18 +84,34 @@ const Login = () => {
                 <div className="flex flex-col space-y-1 5">
                   <FormField
                     control={form.control}
-                    name="username"
+                    name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Username</FormLabel>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input type="email" {...field} placeholder="Email" />
+                        </FormControl>
+                        <FormDescription>Ingresa tu email</FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="flex flex-col space-y-1 5">
+                  <FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Password</FormLabel>
                         <FormControl>
                           <Input
-                            type="text"
+                            type="password"
                             {...field}
-                            placeholder="Username"
+                            placeholder="Password"
                           />
                         </FormControl>
-                        <FormDescription>Ingresa tu username</FormDescription>
+                        <FormDescription>Ingresa tu password</FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -121,4 +146,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

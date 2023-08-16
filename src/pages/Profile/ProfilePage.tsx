@@ -17,10 +17,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { useAuthStore } from "@/store";
 import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { z } from "zod";
 
@@ -32,11 +33,15 @@ const formProfileSchema = z.object({
   address: z.string(),
 });
 
-const Profile = () => {
+const ProfilePage = () => {
+  const logout = useAuthStore((state) => state.logout);
+  const profile = useAuthStore((state) => state.profile);
+  const navigate = useNavigate();
+
   const form = useForm<z.infer<typeof formProfileSchema>>({
     resolver: zodResolver(formProfileSchema),
     defaultValues: {
-      email: "",
+      email: profile.email,
     },
   });
 
@@ -49,6 +54,11 @@ const Profile = () => {
     toast("Error al ingresar los datos", {
       position: toast.POSITION.BOTTOM_RIGHT,
     });
+  };
+
+  const onLogout = () => {
+    logout();
+    navigate("/login");
   };
 
   return (
@@ -184,10 +194,14 @@ const Profile = () => {
         </form>
       </Form>
 
+      <Button variant={"destructive"} onClick={onLogout} type="button">
+        Cerrar Sesion
+      </Button>
+
       <ToastContainer />
       <DevTool control={form.control} />
     </div>
   );
 };
 
-export default Profile;
+export default ProfilePage;

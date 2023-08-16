@@ -17,7 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const Forum = () => {
+const ForumPage = () => {
   return (
     <div>
       <h1 className="text-4xl font-bold lowercase">r/React</h1>
@@ -61,4 +61,4 @@ const Forum = () => {
   );
 };
 
-export default Forum;
+export default ForumPage;

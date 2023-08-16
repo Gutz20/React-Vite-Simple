@@ -1,1 +1,1 @@
-export { default as Coverage } from './Coverage';
+export { default as CoveragePage } from './CoveragePage';

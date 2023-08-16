@@ -3,6 +3,7 @@ export * from './Layout';
 export * from './Navbar';
 export * from './NotFound';
 export * from './Password';
+export * from './ProtectedRoute';
 export * from './Recovery';
 export * from './Reset';
 export * from './ui/button';

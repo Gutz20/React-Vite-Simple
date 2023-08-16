@@ -4,7 +4,7 @@ import { plans } from "@/helpers";
 import { RiCheckLine } from "react-icons/ri";
 import { Plan } from "./components";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <div className="container mx-auto">
@@ -207,4 +207,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
