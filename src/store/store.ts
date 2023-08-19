@@ -4,13 +4,13 @@ import { persist } from "zustand/middleware";
 
 type State = {
   token: string;
-  profile: any;
+  profile: Profile;
   isAuth: boolean;
 };
 
 type Actions = {
   setToken: (token: string) => void;
-  setProfile: (profile: any) => void;
+  setProfile: (profile: Profile) => void;
   logout: () => void;
 };
 
@@ -18,22 +18,35 @@ export const useAuthStore = create(
   persist<State & Actions>(
     (set) => ({
       token: "",
-      profile: null,
+      profile: {
+        email: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
+        address: "",
+      },
       isAuth: false,
       setToken: (token: string) =>
-        set((state) => ({
+        set((_) => ({
           token,
           isAuth: true,
         })),
       setProfile: (profile: any) =>
-        set((state) => ({
+        set((_) => ({
           profile,
         })),
       logout: () =>
-        set((state) => ({
+        // set((state))
+        set((_) => ({
           token: "",
           isAuth: false,
-          profile: null,
+          profile: {
+            email: "",
+            firstName: "",
+            lastName: "",
+            phone: "",
+            address: "",
+          },
         })),
     }),
     { name: "auth" }

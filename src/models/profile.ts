@@ -1,7 +1,7 @@
 export interface Profile {
-  id: number;
   email: string;
-  bio?: string;
-  iat: number;
-  exp: number;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  address?: string;
 }

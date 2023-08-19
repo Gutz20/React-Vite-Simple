@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="flex max-sm:flex-col max-sm:gap-4 md:flex-row justify-between container mx-auto">
         <div className="flex flex-col gap-4 flex-auto w-[40%] max-sm:w-full max-sm:pr-0 max-sm:items-center pr-32">
           <div className="flex items-center gap-2">
-            <img src="assets/logo.png" alt="logo" className="w-16" />
+            <img src="/assets/logo.png" alt="logo" className="w-16" />
             <h3 className="font-bold text-slate-900 text-xl">EnatelPeru</h3>
           </div>
           <p className="text-gray-500">

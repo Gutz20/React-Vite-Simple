@@ -7,11 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components";
-import { Switch } from "@/components/ui/switch";
-import { cn } from "@/libs/utils";
 import { useFavoriteReposStore } from "@/store/favoriteRepos";
 import { Repository } from "@/types/types";
-import { BellRing, Check, ThumbsUp, ThumbsDown } from "lucide-react";
+import { ThumbsDown, ThumbsUp } from "lucide-react";
 
 type CardProps = {
   repository: Repository;

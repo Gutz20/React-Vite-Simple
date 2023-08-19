@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import {
   Layout,
+  LayoutAdmin,
   NotFound,
   Password,
   ProtectedRoute,
@@ -10,11 +11,15 @@ import {
 } from "./components";
 import {
   AboutPage,
+  AdminManagement,
+  Analytics,
   ContactPage,
   CoveragePage,
+  Dashboard,
   ForumPage,
   HomePage,
   LoginPage,
+  PlanManagement,
   PlanPage,
   ProfilePage,
   ReposPage,
@@ -48,6 +53,19 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/coverage" element={<CoveragePage />} />
             <Route path="/repos" element={<ReposPage />} />
+          </Route>
+          // TODO protect this with a rol
+          <Route
+            path="/dashboard"
+            element={<LayoutAdmin />}
+            errorElement={<NotFound />}
+          >
+            <Route element={<ProtectedRoute isAllowed={isAuth} />}>
+              <Route index={true} element={<Dashboard />} />
+              <Route path="/dashboard/admin" element={<AdminManagement />} />
+            </Route>
+            <Route path="/dashboard/plan" element={<PlanManagement />} />
+            <Route path="/dashboard/analytics" element={<Analytics />} />
           </Route>
         </Routes>
       </BrowserRouter>

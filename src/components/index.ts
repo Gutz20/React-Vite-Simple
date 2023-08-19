@@ -1,6 +1,9 @@
 export * from './Footer';
+export * from './FooterAdmin';
 export * from './Layout';
+export { default as LayoutAdmin } from './LayoutAdmin/LayoutAdmin';
 export * from './Navbar';
+export * from './NavbarAdmin';
 export * from './NotFound';
 export * from './Password';
 export * from './ProtectedRoute';
@@ -12,6 +15,7 @@ export * from './ui/form';
 export * from './ui/input';
 export * from './ui/label';
 export * from './ui/select';
+export * from './ui/switch';
 export * from './ui/toast';
 export * from './ui/toaster';
 export * from './ui/use-toast';
