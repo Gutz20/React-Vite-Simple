@@ -1,14 +1,15 @@
 import { Footer, Navbar } from "..";
 import { Outlet } from "react-router-dom";
+import { Toaster } from "@/components/ui/toaster";
+import "react-toastify/dist/ReactToastify.css";
 
 const Layout = () => {
   return (
-    <main>
+    <main className="min-h-screen">
       <Navbar />
-      <div className="w-full p-4 2xl:p-0 2xl:w-[90rem] m-auto">
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer />
+      <Toaster />
     </main>
   );
 };

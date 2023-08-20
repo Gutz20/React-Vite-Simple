@@ -1,22 +1,26 @@
 export const routes = [
   {
-    label: "Home",
+    label: "Inicio",
     path: "/",
   },
   {
-    label: "About",
-    path: "/about",
+    label: "Foro",
+    path: "/forum",
   },
+  // {
+  //   label: "About",
+  //   path: "/about",
+  // },
+  // {
+  //   label: "Contact",
+  //   path: "/contact",
+  // },
   {
-    label: "Contact",
-    path: "/contact",
-  },
-  {
-    label: "Plans",
+    label: "Planes",
     path: "/plans",
   },
-  {
-    label: "Coverage",
-    path: "/coverage",
-  },
+  // {
+  //   label: "Coverage",
+  //   path: "/coverage",
+  // },
 ];
